@@ -1,16 +1,13 @@
 body {
-    font-family: Courier, monospace;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-image: url(paper.jpg);
+    background-image: url(back.jpg);
+    background-size: 100vw 100vh;
     background-attachment: fixed;
-}
-
-p{
-    font-size: 16px;
 }
 
 header {
@@ -44,7 +41,6 @@ h1 {
 input {
     padding: 10px;
     font-size: 14px;
-    font-family: Courier, monospace;
 }
 
 .search-button {
@@ -54,11 +50,11 @@ input {
     background-color: #556fb6;
     border-radius: 10px;
     color: white;
-    font-family: Courier, monospace;
 }
 
 .splash-section {
-    background: linear-gradient(to right, #7f8fa6, #273c75aa);
+    font-family: monospace;
+    background: linear-gradient(to right, #7f8fa6, #273c75aa); /* Gradient background */
     color: #fff;
     text-align: center;
     padding: 20px 2px;
@@ -71,14 +67,13 @@ input {
 }
 
 h2 {
-    font-size: 26px;
-    margin-bottom: 5px;
-
+    font-size: 2.5em;
+    margin-bottom: 20px;
 }
 
 .cta-button {
     padding: 10px 20px;
-    font-size: 12px;
+    font-size: 1.2em;
     background-color: #14b82ad4;
     color: #fff;
     border: none;
