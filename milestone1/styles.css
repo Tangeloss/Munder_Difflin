@@ -1,0 +1,94 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    border: 2px solid black;
+}
+
+/* Add to styles.css */
+.dunder-mifflin-logo {
+    background: url('images/dunder-mifflin-logo.png') no-repeat center center;
+    height: 150px;
+    /* Adjust as needed */
+    width: 300px;
+    /* Adjust as needed */
+    margin: 20px auto;
+    /* Adjust as needed */
+}
+
+.dunder-mifflin-heading {
+    font-family: 'Comic Sans MS', sans-serif;
+    /* Just kidding, use a suitable font */
+    color: #2c3e50;
+}
+
+/* ... rest of your existing styles ... */
+
+
+/* Splash Section Styles */
+.splash-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.cta-button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Search Section Styles */
+.search-section {
+    text-align: center;
+    margin: 20px 0;
+}
+
+input {
+    padding: 10px;
+    font-size: 14px;
+}
+
+.search-button {
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Navigation Styles */
+.navigation {
+    background-color: #333;
+    padding: 10px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline;
+    margin-right: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+}
