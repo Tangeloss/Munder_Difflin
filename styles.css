@@ -18,6 +18,10 @@ header {
     align-items: center;
 }
 
+h1{
+    border: solid black;
+}
+
 .logo-container {
     margin-right: 20px; /* Adjust as needed for spacing */
 }
@@ -35,6 +39,8 @@ header {
 .splash-section {
     text-align: center;
     color: #333;
+    background-color: #b2bdc4bb;
+    display: block;
 }
 
 .cta-button {
@@ -78,7 +84,7 @@ main {
 footer {
     margin-top: auto;
     text-align: center;
-    padding: 10px;
-    background-color: #333;
+    padding: 0.5px;
+    background-color: rgb(115, 120, 120);
     color: #fff;
 }
