@@ -9,7 +9,6 @@ body {
     background-attachment: fixed;
 }
 
-/* Header Styles */
 header {
     background-color: #f4f4f4;
     padding: 20px;
@@ -18,19 +17,18 @@ header {
     align-items: center;
 }
 
-h1{
+h1 {
     border: solid black;
 }
 
 .logo-container {
-    margin-right: 20px; /* Adjust as needed for spacing */
+    margin-right: 20px;
 }
 
 .logo-container img {
-    height: 50px; /* Adjust as needed for the logo size */
+    height: 50px;
 }
 
-/* Search Section Styles */
 .search-section {
     display: flex;
     gap: 10px;
@@ -52,7 +50,6 @@ h1{
     cursor: pointer;
 }
 
-/* Navigation Styles */
 .navigation {
     background-color: #333;
     color: #fff;
@@ -75,12 +72,10 @@ a {
     color: #fff;
 }
 
-/* Main Content Styles */
 main {
-    padding: 20px;
+    padding: 10px;
 }
 
-/* Footer Styles */
 footer {
     margin-top: auto;
     text-align: center;
