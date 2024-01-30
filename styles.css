@@ -61,7 +61,6 @@ input {
 .splash-section {
     font-family: 'Courier New', Courier, monospace;
     background: linear-gradient(to right, #7f8fa6, #273c75aa);
-    /* Gradient background */
     color: #fff;
     text-align: center;
     padding: 20px 2px;
@@ -122,9 +121,7 @@ main {
 
 .logo img {
     width: 150px;
-    /* Adjust the width as needed */
     margin-right: 30px;
-    /* Add margin between each image */
 }
 
 footer {
@@ -137,10 +134,6 @@ footer {
     color: #fff;
 }
 
-.navigation {
-    /* Add any styling for the navigation container */
-}
-
 .navigation ul {
     list-style: none;
     padding: 0;
@@ -149,11 +142,11 @@ footer {
 
 .navigation li {
     display: inline-block;
-    margin-right: 10px; /* Adjust as needed for spacing between logos */
+    margin-right: 10px;
 }
 
 .navigation li img {
-    width: 30px; /* Adjust the width as needed */
-    height: auto; /* Maintain the aspect ratio */
-    display: block; /* Remove any extra spacing below the image */
+    width: 30px;
+    height: auto;
+    display: block;
 }
