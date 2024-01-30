@@ -1,5 +1,5 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family:'Courier New', Courier, monospace;
     margin: 0;
     padding: 0;
     display: flex;
@@ -19,10 +19,14 @@ header {
     align-items: center;
 }
 
+p{
+    font-size: 16px;
+}
+
 h1 {
     border: solid black;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 6px;
 }
 
 .logo-container {
@@ -41,6 +45,7 @@ h1 {
 input {
     padding: 10px;
     font-size: 14px;
+    font-family:'Courier New', Courier, monospace;
 }
 
 .search-button {
@@ -50,10 +55,11 @@ input {
     background-color: #556fb6;
     border-radius: 10px;
     color: white;
+    font-family:'Courier New', Courier, monospace;
 }
 
 .splash-section {
-    font-family: monospace;
+    font-family:'Courier New', Courier, monospace;
     background: linear-gradient(to right, #7f8fa6, #273c75aa); /* Gradient background */
     color: #fff;
     text-align: center;
@@ -67,19 +73,20 @@ input {
 }
 
 h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
+    font-size: 24px;
+    margin-bottom: 2px;
 }
 
 .cta-button {
     padding: 10px 20px;
-    font-size: 1.2em;
+    font-size: 15px;
     background-color: #14b82ad4;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-family:'Courier New', Courier, monospace;
 }
 
 .cta-button:hover {
