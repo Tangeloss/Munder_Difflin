@@ -10,7 +10,7 @@ body {
 }
 
 header {
-    background-color: #ababab84;
+    background-image: url(bliss.jpg);
     padding: 20px;
     display: flex;
     justify-content: space-between;
