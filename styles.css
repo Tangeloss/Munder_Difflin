@@ -1,5 +1,5 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Courier, monospace;
     margin: 0;
     padding: 0;
     display: flex;
@@ -7,6 +7,10 @@ body {
     min-height: 100vh;
     background-image: url(paper.jpg);
     background-attachment: fixed;
+}
+
+p{
+    font-size: 16px;
 }
 
 header {
@@ -40,6 +44,7 @@ h1 {
 input {
     padding: 10px;
     font-size: 14px;
+    font-family: Courier, monospace;
 }
 
 .search-button {
@@ -49,10 +54,11 @@ input {
     background-color: #556fb6;
     border-radius: 10px;
     color: white;
+    font-family: Courier, monospace;
 }
 
 .splash-section {
-    background: linear-gradient(to right, #7f8fa6, #273c75aa); /* Gradient background */
+    background: linear-gradient(to right, #7f8fa6, #273c75aa);
     color: #fff;
     text-align: center;
     padding: 20px 2px;
@@ -65,8 +71,9 @@ input {
 }
 
 h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
+    font-size: 26px;
+    margin-bottom: 5px;
+
 }
 
 .cta-button {
