@@ -136,3 +136,7 @@ footer {
     background-repeat: no-repeat;
     color: #fff;
 }
+
+ul {
+    list-style: url('pie_icon.gif');
+}
