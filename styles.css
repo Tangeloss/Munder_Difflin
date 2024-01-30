@@ -110,6 +110,11 @@ main {
     padding: 10px;
 }
 
+.logo img {
+    width: 150px; /* Adjust the width as needed */
+    margin-right: 30px; /* Add margin between each image */
+}
+
 footer {
     margin-top: auto;
     text-align: center;
