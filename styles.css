@@ -6,11 +6,12 @@ body {
     flex-direction: column;
     min-height: 100vh;
     background-image: url(paper.jpg);
-    background-repeat: repeat;
+    background-attachment: fixed;
 }
 
 header {
     background-image: url(bliss.jpg);
+    background-position: 60% 55%;
     padding: 20px;
     display: flex;
     justify-content: space-between;
