@@ -1,5 +1,5 @@
 body {
-    font-family:'Courier New', Courier, monospace;
+    font-family: 'Courier New', Courier, monospace;
     margin: 0;
     padding: 0;
     display: flex;
@@ -19,7 +19,7 @@ header {
     align-items: center;
 }
 
-p{
+p {
     font-size: 16px;
 }
 
@@ -45,7 +45,7 @@ h1 {
 input {
     padding: 10px;
     font-size: 14px;
-    font-family:'Courier New', Courier, monospace;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .search-button {
@@ -55,12 +55,13 @@ input {
     background-color: #556fb6;
     border-radius: 10px;
     color: white;
-    font-family:'Courier New', Courier, monospace;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .splash-section {
-    font-family:'Courier New', Courier, monospace;
-    background: linear-gradient(to right, #7f8fa6, #273c75aa); /* Gradient background */
+    font-family: 'Courier New', Courier, monospace;
+    background: linear-gradient(to right, #7f8fa6, #273c75aa);
+    /* Gradient background */
     color: #fff;
     text-align: center;
     padding: 20px 2px;
@@ -86,7 +87,7 @@ h2 {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    font-family:'Courier New', Courier, monospace;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .cta-button:hover {
@@ -120,8 +121,10 @@ main {
 }
 
 .logo img {
-    width: 150px; /* Adjust the width as needed */
-    margin-right: 30px; /* Add margin between each image */
+    width: 150px;
+    /* Adjust the width as needed */
+    margin-right: 30px;
+    /* Add margin between each image */
 }
 
 footer {
