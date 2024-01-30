@@ -5,13 +5,13 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-image: url(back.jpg);
+    background-image: url(/milestone1/images/back.jpg);
     background-size: 100vw 100vh;
     background-attachment: fixed;
 }
 
 header {
-    background-image: url(bliss.jpg);
+    background-image: url(/milestone1/images/bliss.jpg);
     background-position: 60% 55%;
     padding: 20px;
     display: flex;
