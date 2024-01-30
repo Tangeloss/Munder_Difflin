@@ -3,22 +3,16 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
+    background-image: url(paper.jpg);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 h1 {
     border: 2px solid black;
 }
 
-/* Add to styles.css */
-.dunder-mifflin-logo {
-    background: url('images/dunder-mifflin-logo.png') no-repeat center center;
-    height: 150px;
-    /* Adjust as needed */
-    width: 300px;
-    /* Adjust as needed */
-    margin: 20px auto;
-    /* Adjust as needed */
-}
 
 .dunder-mifflin-heading {
     font-family: 'Comic Sans MS', sans-serif;
@@ -32,8 +26,8 @@ h1 {
 /* Splash Section Styles */
 .splash-section {
     text-align: center;
-    padding: 50px;
-    background-color: #f4f4f4;
+    padding: 5px;
+    background-image: url(paper.jpg);
     color: #333;
 }
 
@@ -66,7 +60,9 @@ input {
 /* Navigation Styles */
 .navigation {
     background-color: #333;
-    padding: 10px;
+    padding: 4px;
+    text-align: center;
+     
 }
 
 ul {
@@ -87,6 +83,7 @@ a {
 
 /* Footer Styles */
 footer {
+    margin-top: auto; /* Pushes the footer to the bottom of the container */
     text-align: center;
     padding: 10px;
     background-color: #333;
