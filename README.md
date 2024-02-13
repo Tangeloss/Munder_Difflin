@@ -1,3 +1,3 @@
 # munderdifflin.github.io
 
-Update README
+Munder Difflin Project Repository - Kennedy Ninh & Hayden Perusek
