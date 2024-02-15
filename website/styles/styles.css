@@ -172,17 +172,25 @@ main {
     margin-right: 30px;
 }
 
+.logo-cart1 img {
+    width: 150px;
+    margin-right: 40px;
+}
+
 .logo-cart1 {
-    vertical-align: top;
-    display: inline-block;
+    display:block;
     text-align: center;
-    width: 120px;
+    width: 150px;
 }
 
 .logo-cart1 p {
     border-radius: 6px;
     border: solid black 2px;
     display: block;
+    background-color: white;
+}
+
+.total{
     background-color: white;
 }
 
