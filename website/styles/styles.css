@@ -12,10 +12,11 @@ body {
 
 header {
     background-image: url(/website/images/bliss.jpg);
-    background-position: 60% 55%;
     padding: 20px;
     display: flex;
     justify-content: space-between;
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
     align-items: center;
 }
 
