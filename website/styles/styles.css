@@ -185,7 +185,7 @@ main {
 }
 
 .logo-cart1 {
-    display: block;
+    display:inline-table;
     text-align: center;
     width: 150px;
 }
@@ -198,8 +198,9 @@ main {
 }
 
 .cart-section {
-    width: 20%;
-    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .total {
