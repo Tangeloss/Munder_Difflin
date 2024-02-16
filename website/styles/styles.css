@@ -198,6 +198,9 @@ main {
 
 .total {
     background-color: white;
+    border-radius: 6px;
+    border: solid black 2px;
+    display:inline-block;
 }
 
 .product-container {
