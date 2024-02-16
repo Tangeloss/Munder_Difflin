@@ -197,8 +197,12 @@ main {
 }
 
 .total {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.568);
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 10px;
 }
+
 
 .product-container {
     display: flex;
