@@ -38,6 +38,13 @@ main {
 
 form {
     margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+}
+
+label {
+    grid-column: 1 / -1; /* Span across all columns */
 }
 
 input[type="text"],
@@ -46,14 +53,6 @@ textarea {
     width: 100%;
     padding: 10px;
     margin: 5px 0;
-}
-
-button {
-    padding: 10px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    cursor: pointer;
 }
 
 button:hover {
@@ -105,4 +104,13 @@ button:hover {
 .navigation li {
     display: inline-block;
     margin-right: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
 }
