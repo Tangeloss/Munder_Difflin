@@ -43,6 +43,23 @@ form {
     grid-gap: 10px;
 }
 
+/* CSS for the upload button on the Bulk Upload page */
+.upload-button {
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #5b5e61;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.upload-button:hover {
+    background-color: #0056b3;
+}
+
+
+
 label {
     grid-column: 1 / -1; /* Span across all columns */
 }
