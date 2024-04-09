@@ -1,5 +1,5 @@
 // productController.js
-const { getAllProducts, getProductById, getProductsByType, addNewProduct } = require('./productModel');
+const { getAllProducts, getProductById, getProductsByType, addNewProduct } = require('../models/productModel');
 
 // Route handler for fetching all products
 function getAllProductsHandler(req, res) {
