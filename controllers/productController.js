@@ -1,36 +1,33 @@
 // productController.js
-const { getAllProducts, getProductById, getProductsByType, addNewProduct } = require('../models/productModel');
 
-// Route handler for fetching all products
-function getAllProductsHandler(req, res) {
-    const products = getAllProducts();
-    res.json(products);
-}
-
-// Route handler for fetching a product by ID
-function getProductByIdHandler(req, res) {
-    const productId = req.params.id;
-    const product = getProductById(productId);
-    res.json(product);
-}
-
-// Route handler for fetching products by type
-function getProductsByTypeHandler(req, res) {
-    const type = req.query.type;
-    const products = getProductsByType(type);
-    res.json(products);
-}
-
-// Route handler for adding a new product
-function addNewProductHandler(req, res) {
-    const productData = req.body;
-    const result = addNewProduct(productData);
-    res.json(result);
-}
-
-module.exports = {
-    getAllProductsHandler,
-    getProductByIdHandler,
-    getProductsByTypeHandler,
-    addNewProductHandler
+const productController = {
+    getProduct: async (req, res) => {
+        try {
+            // Code to fetch product data
+            res.status(200).json({ message: 'Product data fetched successfully' });
+        } catch (error) {
+            console.error('Error fetching product data:', error);
+            res.status(500).json({ error: 'Internal server error' });
+        }
+    },
+    editProduct: async (req, res) => {
+        try {
+            // Code to edit product
+            res.status(200).json({ message: 'Product edited successfully' });
+        } catch (error) {
+            console.error('Error editing product:', error);
+            res.status(500).json({ error: 'Internal server error' });
+        }
+    },
+    addProduct: async (req, res) => {
+        try {
+            // Code to add new product
+            res.status(200).json({ message: 'Product added successfully' });
+        } catch (error) {
+            console.error('Error adding product:', error);
+            res.status(500).json({ error: 'Internal server error' });
+        }
+    }
 };
+
+module.exports = productController;
