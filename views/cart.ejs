@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= pageTitle || "Your Shopping Cart" %>
+    </title>
+    <link rel="stylesheet" href="<%= styleSheetPath || 'styles/styles.css' %>">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="images/logo.png" alt="Munder Difflin Logo">
+        </div>
+        <h1 class="main-head">Munder Difflin Paper Co.</h1>
+
+        <section class="search-section">
+            <input type="text" placeholder="Search for products...">
+            <button class="search-button">Go</button>
+        </section>
+
+
+    </header>
+
+    <nav class="navigation">
+        <ul>
+            <li><a href="/index.html"><img src="images/home.png" alt="Home">Home</a></li>
+            <li><a href="#">View Categories</a></li>
+            <li><a href="cart.html"><img src="images/cart.png" alt="Home">Shopping Cart</a></li>
+            <li><a href="#">Sign In/Out</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="cart-section">
+
+            <h2>Shopping Cart</h2>
+
+            <ul class="cart-items">
+                <% cartItems.forEach(function(item) { %>
+                    <li>
+                        <img src="<%= item.imagePath %>" alt="<%= item.name %>">
+                        <div>
+                            <h3>
+                                <%= item.name %>
+                            </h3>
+                            <p>Quantity: <%= item.quantity %>
+                            </p>
+                            <p>Price: $<%= item.price %>
+                            </p>
+                        </div>
+                    </li>
+                    <% }); %>
+            </ul>
+
+        </section>
+
+        <div class="total">
+            <p>Total Price: $<%= cartItems.reduce(function(total, item) { return total + (item.price * item.quantity);
+                    }, 0) %>
+            </p>
+            <% if (cartItems.length> 0) { %>
+                <button>Checkout</button>
+                <% } else { %>
+                    <p>Your cart is empty.</p>
+                    <% } %>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Munder Difflin. All rights reserved.</p>
+        <p>Powered by passion for paper. Crafted with care and creativity at Munder Difflin Paper Co.</p>
+    </footer>
+
+</body>
+
+</html>

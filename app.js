@@ -1,23 +1,22 @@
-const express = require("express");
+const express = require('express');
+const path = require('path');
 const app = express();
-const productController = require('./controllers/productController');
-
-app.use(express.json());
-
-// Route handler for fetching all products
-app.get("/products/all", productController.getAllProductsHandler);
-
-// Route handler for fetching a product by ID
-app.get("/products/id/:id", productController.getProductByIdHandler);
-
-// Route handler for fetching products by type
-app.get("/products", productController.getProductsByTypeHandler);
-
-// Route handler for adding a new product
-app.post("/products/new", productController.addNewProductHandler);
-
-// Start the server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`);
+
+// Set EJS as templating engine
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+// Middleware to serve static files
+app.use(express.static('public'));
+
+// Home Route
+app.get('/', (req, res) => {
+    res.render('index');
 });
+
+// Products Route
+const productRoutes = require('./routes/products');
+app.use('/products', productRoutes);
+
+app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
