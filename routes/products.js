@@ -1,6 +1,7 @@
 // routes/products.js
 const express = require('express');
 const router = express.Router();
+const productsController = require('../controllers/productController');
 
 router.get('/', (req, res) => {
     const products = [
@@ -15,5 +16,6 @@ router.get('/', (req, res) => {
 
     res.render('products', { products });
 });
+router.get('/products/:productId', productsController.fetchProductById);  
 
 module.exports = router;
