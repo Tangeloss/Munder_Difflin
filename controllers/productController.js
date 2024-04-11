@@ -20,6 +20,8 @@
 //  ... other imports ...
 
 exports.fetchProductById = (req, res) => {
+  console.log('Hitting fetch products');
+  console.log(req.params.id);
   const productId = req.params.id;
   
 

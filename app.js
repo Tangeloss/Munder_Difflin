@@ -20,4 +20,17 @@ app.get('/', (req, res) => {
 const productRoutes = require('./routes/products');
 app.use('/products', productRoutes);
 
+app.get('/product/:id', (req, res) => {
+    // Simulated product data
+    const product = {
+        id: req.params.id,
+        name: 'Product Name',
+        description: 'Product Description',
+        price: 99.99
+    };
+
+    // Render the 'product-details' view and pass the product data to it
+    res.render('product-details', { product });
+});
+
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));

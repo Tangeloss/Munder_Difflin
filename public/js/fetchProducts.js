@@ -1,6 +1,6 @@
 /*document.addEventListener('DOMContentLoaded', function() {
     const baseUrl = ''; // Use the base URL of your backend if it's different from your frontend
-    fetch(`${baseUrl}/api/products`)
+    fetch(`${baseUrl}/products`)
       .then(response => response.json())
       .then(products => {
         const productDisplay = document.getElementById('product-display');
@@ -17,32 +17,49 @@
       .catch(error => console.error('Failed to load products:', error));
   });*/
 
-// fetchProducts.js
+  // fetchProducts.js
+
+  // fetchProducts.js
+
+
+// Fetch single product data
+async function fetchProduct(id) {
+
+  const response = await fetch(`/products/${id}`);
+  return await response.json();
+
+}
+
+// Render product details page
+function renderProductDetails(product) {
+
+  document.querySelector('.product-detail').innerHTML = `
+    <h2>${product.name}</h2>
+    <img src="${product.image}">
+    <p>${product.description}</p>
+    <p>Price: $${product.price}</p>
+  `;
+
+}
+
+function handleProductClick(id) {
+  fetchProduct(id)
+    .then(product => renderProductDetails(product)) 
+}
+
 
 async function fetchProducts() {
-
   const response = await fetch('/products');
-
-  const products = await response.json();
-
-  return products;
-
+  return await response.json();
 }
 
-
-
-// Get details for a single product 
-async function fetchProductDetails(productId) {
-
-  const product = await fetch(`/products/${productId}`)
-    .then(res => res.json());
-
-  return product;
+async function fetchProductById(id) {
+  const response = await fetch(`/products/${id}`);
+  return await response.json(); 
 }
 
-export {
+module.exports = {
   fetchProducts,
-  fetchProductDetails
-}
-
+  fetchProductById
+};
   

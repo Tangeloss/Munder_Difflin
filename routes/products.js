@@ -2,6 +2,8 @@
 const express = require('express');
 const router = express.Router();
 const productsController = require('../controllers/productController');
+//import { fetchProducts, fetchProductById } from '../public/js/fetchProducts';
+const { fetchProducts } = require('../public/js/fetchProducts');
 
 router.get('/', (req, res) => {
     const products = [
@@ -16,6 +18,18 @@ router.get('/', (req, res) => {
 
     res.render('products', { products });
 });
-router.get('/products/:productId', productsController.fetchProductById);  
+router.get('/products/:productId', productsController.fetchProductById); 
+// routes/products.js 
+
+router.get('/', async (req, res) => {
+  const products = await fetchProducts();
+  res.render('products', { products });
+});
+
+router.get('/:productId', async (req, res) => {
+  const product = await fetchProductById(req.params.productId);
+  res.render('productDetail', { product }); 
+});
+
 
 module.exports = router;
