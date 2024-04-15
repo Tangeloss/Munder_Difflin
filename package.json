@@ -1,7 +1,7 @@
 {
-  "name": "munderdifflin.github.io",
+  "name": "munderdifflin",
   "version": "1.0.0",
-  "description": "Munder Difflin Project Repository - Kennedy Ninh & Hayden Perusek",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,11 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "better-sqlite3": "^9.4.5",
-    "ejs": "^3.1.9",
+    "better-sqlite3": "^9.5.0",
     "express": "^4.19.2",
     "multer": "^1.4.5-lts.1",
-    "sqlite": "^5.1.1",
     "sqlite3": "^5.1.7"
   }
 }
