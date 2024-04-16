@@ -13,7 +13,7 @@ function displayCartItems() {
         cartContainer.innerHTML += `
             <div class="cart-item" id="cart-item-${index}">
                 <h3>${product.name}</h3>
-                <img src="${product.image}" alt="${product.name}">
+                <img src="${product.image_url}" alt="${product.name}">
                 <p>${product.description}</p>
                 <p>Price: $${product.price.toFixed(2)}</p>
                 <p>Quantity: ${product.quantity || 1}</p> <!-- Show quantity if available -->

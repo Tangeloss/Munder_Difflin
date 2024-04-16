@@ -3,7 +3,10 @@ const multer = require('multer');
 const sqlite3 = require('sqlite3');
 const db = new sqlite3.Database('./database/database.db'); // Make sure this path is correct.
 const productRoutes = require('./routes/productRoutes')(db);
+<<<<<<< Updated upstream
 //const cartRoutes = require('./routes/cartRoutes')(db);
+=======
+>>>>>>> Stashed changes
 const categoryRoutes = require('./routes/categoryRoutes')(db); // Import the function and invoke it immediately with `db`
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -16,7 +19,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use('/products', productRoutes); // Use the router on the '/products' path
 app.use('/categories', categoryRoutes); 
+<<<<<<< Updated upstream
 //app.use('/cart', cartRoutes); // Use cart routes
+=======
+>>>>>>> Stashed changes
 
 // Example route for the root path
 app.get('/', (req, res) => {

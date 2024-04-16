@@ -20,7 +20,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get("id"); // Make sure 'id' matches the query parameter key
-  
+
   console.log("Product ID:", productId);
 
   if (!productId) {
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return; // Stop further execution if no product ID is found
   }
 
-  fetch(`/products/${ productId }`)
+  fetch(`/products/${productId}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error("Network response was not OK");
@@ -57,6 +57,13 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error("Error fetching product details:", error);
     });
 });
+
+function addToCart(product) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.push(product);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert("Added to cart!");
+}
 
 /*
 
