@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
               <div>
                   <img src="${categories.image_url}" alt="${categories.name}">
                   <h3>${categories.name}</h3>
-                  <button onclick="window.location.href='/products.html?category=${categories.category_id}'">Shop ${categories.name}</button>
+                  <button class="cta-button" onclick="window.location.href='/products.html?category=${categories.category_id}'">Shop ${categories.name}</button>
               </div>
           `;
         });
