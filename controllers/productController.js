@@ -54,6 +54,20 @@ exports.getProductsByCategory = (db) => {
   };
 };
 
+// productController.js
+exports.searchProducts = (db) => {
+  return (req, res) => {
+    const query = `%${req.query.search}%`; // Wrap the search term in '%' for the LIKE SQL operation
+    db.all("SELECT * FROM products WHERE name LIKE ? OR description LIKE ?", [query, query], (err, products) => {
+      if (err) {
+        res.status(500).send("Error fetching products: " + err.message);
+        console.error(err.message);
+      } else {
+        res.json(products);
+      }
+    });
+  };
+};
 
 
 /*const sqlite3 = require("sqlite3").verbose();

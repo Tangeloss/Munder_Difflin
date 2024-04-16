@@ -1,43 +1,19 @@
 // productRoutes.js
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const productController = require('../controllers/productController');
+const productController = require("../controllers/productController");
 
-module.exports = function(db) {
-  router.get('/:id', productController.getProductDetails(db));
-  router.get('/', productController.getProducts(db));
-  router.get('/category/:categoryId', productController.getProductsByCategory(db));
+module.exports = function (db) {
+  router.get(
+    "/category/:categoryId",
+    productController.getProductsByCategory(db)
+  );
+  router.get("/search", productController.searchProducts(db));
+  router.get("/:id", productController.getProductDetails(db));
+  router.get("/", productController.getProducts(db));
+
   return router;
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*const express = require('express');
 const router = express.Router();
