@@ -60,18 +60,21 @@ app.get('/api/products/:id', (req, res) => {
 
 
 app.post('/api/products/update', (req, res) => {
-  const { product_id, name, description, category_id, image_path, price } = req.body;
-  const sql = `UPDATE products SET name = ?, description = ?, category_id = ?, image_path = ?, price = ? WHERE product_id = ?`;
-  const params = [name, description, category_id, image_path, price, product_id];
-
-  db.run(sql, params, function(err) {
+  const { product_id, name, description, category_id, image_url, price } = req.body;
+  const sql = `UPDATE Products SET name = ?, description = ?, category_id = ?, image_url = ?, price = ? WHERE product_id = ?`;
+  db.run(sql, [name, description, category_id, image_url, price, product_id], function(err) {
       if (err) {
-          res.status(400).json({ error: err.message });
-          return;
+          console.error("Error updating product:", err.message);
+          return res.status(500).json({ error: 'Failed to update product', details: err.message });
       }
-      res.json({ message: 'Product Updated Successfully', changes: this.changes });
+      if (this.changes === 0) {
+          return res.status(404).json({ error: 'Product not found' });
+      }
+      res.json({ message: 'Product updated successfully' });
   });
 });
+
+
 
 
 app.get('/', (req, res) => {

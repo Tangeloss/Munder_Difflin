@@ -28,11 +28,10 @@
     <!--Form Section-->
     <main>
         <h2>Edit Product</h2>
-        <form id="edit_product_form" onsubmit="updateProduct(); return false;">
-    <input type="text" id="search_product_id" placeholder="Enter Product ID">
-    <button onclick="searchProduct()">Search Product</button>
-
-    <ul>
+        <form id="edit_product_form" onsubmit="updateProduct(event);">
+            <input type="text" id="search_product_id" placeholder="Enter Product ID">
+            <button type="button" onclick="searchProduct()">Search Product</button>
+            <ul>
         <li>
             <label for="product_id">Product ID:</label>
             <input type="text" id="product_id" name="product_id" readonly disabled>
@@ -50,9 +49,9 @@
             <input type="text" id="category_id" name="category_id">
         </li>
         <li>
-            <label for="image_path">Image Path:</label>
-            <input type="text" id="image_path" name="image_path">
-        </li>
+            <label for="image_url">Image URL:</label>
+            <input type="text" id="image_url" name="image_url">
+        </li>        
         <li>
             <label for="price">Price:</label>
             <input type="text" id="price" name="price">

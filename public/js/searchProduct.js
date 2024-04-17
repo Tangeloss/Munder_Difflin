@@ -37,7 +37,7 @@ function searchProduct() {
               document.getElementById('name').value = product.name || '';
               document.getElementById('description').value = product.description || '';
               document.getElementById('category_id').value = product.category_id || '';
-              document.getElementById('image_path').value = product.image_url || '';
+              document.getElementById('image_url').value = product.image_url || '';
               document.getElementById('price').value = product.price || '';
           } else {
               alert('Product not found!');
@@ -52,34 +52,40 @@ function searchProduct() {
 
 
 
-function updateProduct() {
-event.preventDefault();  // Stop the form from submitting normally
-
+function updateProduct(event) {
+  event.preventDefault();
   const productData = {
-      product_id: document.getElementById('product_id').value, 
-      name: document.getElementById('name').value,
-      description: document.getElementById('description').value,
-      category_id: document.getElementById('category_id').value,
-      image_path: document.getElementById('image_path').value,
-      price: document.getElementById('price').value
+    product_id: document.getElementById('product_id').value,
+    name: document.getElementById('name').value,
+    description: document.getElementById('description').value,
+    category_id: document.getElementById('category_id').value,
+    image_url: document.getElementById('image_url').value, // Corrected to 'image_url'
+    price: document.getElementById('price').value
   };
 
+  console.log("Sending data to server:", productData);  // Debugging output
+
   fetch('/api/products/update', {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(productData)
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(productData)
   })
   .then(response => response.json())
   .then(data => {
+      console.log("Server response:", data);  // More debugging output
       alert(data.message);
   })
   .catch(error => {
       console.error('Error updating product:', error);
       alert('Failed to update product.');
   });
+  return false; // Ensure this is here to prevent form submission
 }
+
+
+
 
 
 
