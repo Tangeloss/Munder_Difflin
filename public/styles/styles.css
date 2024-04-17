@@ -79,16 +79,9 @@ h1 {
 }
 
 input {
-    padding: 10px;
+    padding: 5px;
     font-size: 14px;
     font-family: 'Courier New', Courier, monospace;
-}
-
-.quantity input {
-    padding: 6px;
-    font-size: 14px;
-    font-family: 'Courier New', Courier, monospace;
-    width: 75px;
 }
 
 .search-button {

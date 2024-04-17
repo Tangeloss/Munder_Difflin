@@ -1,103 +1,41 @@
 const express = require('express');
-const multer = require('multer');
+const session = require('express-session');
 const sqlite3 = require('sqlite3');
-const db = new sqlite3.Database('./database/database.db'); // Make sure this path is correct.
+const db = new sqlite3.Database('./database/database.db'); 
 const productRoutes = require('./routes/productRoutes')(db);
-const userRoutes = require('./routes/userRoutes')(db); 
-//const cartRoutes = require('./routes/cartRoutes')(db);
-const categoryRoutes = require('./routes/categoryRoutes')(db); // Import the function and invoke it immediately with `db`
+const userRoutes = require('./routes/userRoutes')(db);
+const categoryRoutes = require('./routes/categoryRoutes')(db);
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware to parse JSON and urlencoded form data
+app.use(session({
+  secret: '!QAZ2wsx',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false } // Set to true if you're using HTTPS
+}));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-// Serve static files from 'public' directory
 app.use(express.static('public'));
-app.use('/products', productRoutes); // Use the router on the '/products' path
+app.use('/products', productRoutes); 
 app.use('/categories', categoryRoutes); 
 app.use('/users', userRoutes);
-app.use('/', userRoutes);
-//app.use('/cart', cartRoutes); // Use cart routes
+app.use('/', userRoutes); // This might be redundant if userRoutes does not handle root '/'
 
-// In server.js
-app.post('/login', function(req, res) {
-  // Log incoming request for debugging
-  console.log(req.body);
-  // Your authentication logic here
+app.get('/logout', (req, res) => {
+  req.session.destroy((err) => {
+      if (err) {
+          return res.status(500).send('Failed to log out');
+      }
+      res.redirect('/login.html'); 
+  });
 });
 
-
-// Example route for the root path
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-// Start the server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*const express = require('express');
-const multer = require('multer');
-// Using sqlite3
-const sqlite3 = require('sqlite3');
-const db = new sqlite3.Database('./path_to_database.db');
-//const productRoutes = require('./routes/productRoutes');
-const productRoutes = require('./routes/productRoutes')(db);
-const app = express();
-const PORT = process.env.PORT || 3000;
-
-// Middleware to parse JSON and urlencoded form data
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-// Middleware to attach db to req
-app.use((req, res, next) => {
-  req.db = db;
-  next();
-});
-
-// Now in any route, you can access req.db to get the database connection
-
-
-// Serve static files from 'public' directory
-app.use(express.static('public'));
-app.use('/', productRoutes);
-
-// Example route
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
-
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});*/

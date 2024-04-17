@@ -22,17 +22,18 @@ const userController = {
             const sql = `SELECT password, user_type FROM Users WHERE email = ?`;
             db.get(sql, [email], (err, row) => {
                 if (err) {
-                    res.status(500).send('Internal server error');
-                    return;
+                    return res.status(500).send('Internal server error');
                 }
                 if (!row || row.password !== password) {
-                    res.status(401).send('Invalid email or password');
-                    return;
+                    return res.status(401).send('Invalid email or password');
                 }
+                console.log(req.session); // Check if session is undefined
+                req.session.user = { email: email, user_type: row.user_type };
                 res.json({ user_type: row.user_type });
             });
         };
     }
+    
 };
 
 module.exports = userController;
