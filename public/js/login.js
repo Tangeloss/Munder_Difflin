@@ -13,7 +13,7 @@ document.getElementById('login-form').addEventListener('submit', function (event
         .then(response => response.json())
         .then(data => {
             if (data.user_type === 'admin') {
-                window.location.href = '/admin_upload.html';
+                window.location.href = '/admin_home.html';
             } else if (data.user_type === 'customer') {
                 window.location.href = '/index.html';
             }
