@@ -52,10 +52,11 @@ function searchProduct() {
 
 
 
-function updateProduct(event) {
-  //event.preventDefault();  // Good practice to include this
+function updateProduct() {
+event.preventDefault();  // Stop the form from submitting normally
+
   const productData = {
-      product_id: document.getElementById('product_id').value,  // Though this field is read-only, capturing if needed
+      product_id: document.getElementById('product_id').value, 
       name: document.getElementById('name').value,
       description: document.getElementById('description').value,
       category_id: document.getElementById('category_id').value,
@@ -72,12 +73,13 @@ function updateProduct(event) {
   })
   .then(response => response.json())
   .then(data => {
-      alert(data.message);  // Displaying a success message or handling response
+      alert(data.message);
   })
   .catch(error => {
       console.error('Error updating product:', error);
       alert('Failed to update product.');
   });
 }
+
 
 
