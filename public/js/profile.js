@@ -9,9 +9,9 @@ document.addEventListener('DOMContentLoaded', function () {
             if (data.loggedIn && data.user_type === 'customer') {
                 addLogoutButton(navBar);
                 document.getElementById('login-item').style.display = 'none';
-                document.getElementById('logout-item').style.display = 'block';
+                document.getElementById('logout-item').style.display = 'inline-block';
             } else {
-                document.getElementById('login-item').style.display = 'block';
+                document.getElementById('login-item').style.display = 'inline-block';
                 document.getElementById('logout-item').style.display = 'none';
             }
         })
