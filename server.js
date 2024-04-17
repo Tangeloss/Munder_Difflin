@@ -41,6 +41,39 @@ app.get('/logout', (req, res) => {
   });
 });
 
+app.get('/api/products/:id', (req, res) => {
+  const { id } = req.params;
+  db.get('SELECT * FROM Products WHERE product_id = ?', [id], (err, row) => {
+      if (err) {
+          console.error('Database error:', err.message);
+          res.status(500).json({ error: 'Internal server error' });
+          return;
+      }
+      if (!row) {
+          res.status(404).json({ error: 'Product not found' });
+          return;
+      }
+      res.json(row);
+  });
+});
+
+
+
+app.post('/api/products/update', (req, res) => {
+  const { product_id, name, description, category_id, image_path, price } = req.body;
+  const sql = `UPDATE products SET name = ?, description = ?, category_id = ?, image_path = ?, price = ? WHERE product_id = ?`;
+  const params = [name, description, category_id, image_path, price, product_id];
+
+  db.run(sql, params, function(err) {
+      if (err) {
+          res.status(400).json({ error: err.message });
+          return;
+      }
+      res.json({ message: 'Product Updated Successfully', changes: this.changes });
+  });
+});
+
+
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });

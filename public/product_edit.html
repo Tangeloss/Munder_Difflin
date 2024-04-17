@@ -28,11 +28,14 @@
     <!--Form Section-->
     <main>
         <h2>Edit Product</h2>
-<form action="edit_product.php" method="post">
+        <form id="edit_product_form" onsubmit="updateProduct(); return false;">
+    <input type="text" id="search_product_id" placeholder="Enter Product ID">
+    <button onclick="searchProduct()">Search Product</button>
+
     <ul>
         <li>
             <label for="product_id">Product ID:</label>
-            <input type="text" id="product_id" name="product_id" value="123456" readonly disabled>
+            <input type="text" id="product_id" name="product_id" readonly disabled>
         </li>
         <li>
             <label for="name">Name:</label>
@@ -116,6 +119,7 @@
     </script>
 
 <script src="/js/profile.js" defer></script>
+<script src="/js/searchProduct.js" defer></script>
 </body>
 
 </html>
