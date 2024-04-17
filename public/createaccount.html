@@ -1,33 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Account</title>
     <link rel="stylesheet" href="styles/styles.css">
+    <script src="/js/profile.js"></script> 
 </head>
+
 <body>
-    <div class="container">
-        <h2>Create Account</h2>
-        <form action="#" method="post">
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <div class="form-group">
-                <label for="usertype">User Type:</label>
-                <select id="usertype" name="usertype" required>
-                    <option value="" disabled selected>Select User Type</option>
-                    <option value="admin">Admin</option>
-                    <option value="customer">Customer</option>
-                </select>
-            </div>
-            <button type="submit" class="btn">Create Account</button>
-        </form>
-    </div>
+    <header>
+        <div class="logo-container">
+            <img src="images/logo.png" alt="Munder Difflin Logo">
+        </div>
+        <h1 class="main-head">Munder Difflin Paper Co.</h1>
+
+        <section class="search-section">
+            <input type="text" placeholder="Search for products..." id="search-input">
+            <button class="search-button" id="search-button">Go</button>
+        </section>
+    </header>
+
+    <nav class="navigation">
+        <ul>
+            <li><a href="/"><img src="images/home.png" alt="Home">Home</a></li>
+            <li><a href="#">View Categories</a></li>
+            <li><a href="cart.html"><img src="images/cart.png" alt="Home">Shopping Cart</a></li>
+            <li><a href="login.html">Sign In/Out</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="splash-section">
+            <h2>Create Account</h2>
+            <form id="create-account-form" action="/users/create-account" method="POST">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="usertype">User Type:</label>
+                    <select id="usertype" name="usertype" required>
+                        <option value="" disabled selected>Select User Type</option>
+                        <option value="admin">Admin</option>
+                        <option value="customer">Customer</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Create Account</button>
+            </form>
+        </section>
+    </main>    
+
+    <footer>
+        <p>&copy; 2024 Munder Difflin. All rights reserved.</p>
+        <p>Powered by passion for paper. Crafted with care and creativity at Munder Difflin Paper Co.</p>
+    </footer>
+
+
 </body>
+
 </html>
