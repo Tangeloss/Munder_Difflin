@@ -12,10 +12,10 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     })
     .then(response => response.json())
     .then(data => {
-        if (data.user_type === 'Admin') {
-            window.location.href = '/public/admin_home.html';
-        } else if (data.user_type === 'Customer') {
-            window.location.href = '/public/index.html';
+        if (data.user_type.toLowerCase() === 'admin') {
+            window.location.href = '/admin_home.html';
+        } else if (data.user_type.toLowerCase() === 'customer') {
+            window.location.href = '/index.html';
         }
     })
     .catch(error => console.error('Error:', error));

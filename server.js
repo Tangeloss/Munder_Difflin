@@ -18,7 +18,16 @@ app.use(express.static('public'));
 app.use('/products', productRoutes); // Use the router on the '/products' path
 app.use('/categories', categoryRoutes); 
 app.use('/users', userRoutes);
+app.use('/', userRoutes);
 //app.use('/cart', cartRoutes); // Use cart routes
+
+// In server.js
+app.post('/login', function(req, res) {
+  // Log incoming request for debugging
+  console.log(req.body);
+  // Your authentication logic here
+});
+
 
 // Example route for the root path
 app.get('/', (req, res) => {

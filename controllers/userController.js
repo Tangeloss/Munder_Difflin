@@ -16,6 +16,23 @@ const userController = {
             });
         };
     },
+    login: function(db) {
+        return function(req, res) {
+            const { email, password } = req.body;
+            const sql = `SELECT password, user_type FROM Users WHERE email = ?`;
+            db.get(sql, [email], (err, row) => {
+                if (err) {
+                    res.status(500).send('Internal server error');
+                    return;
+                }
+                if (!row || row.password !== password) {
+                    res.status(401).send('Invalid email or password');
+                    return;
+                }
+                res.json({ user_type: row.user_type });
+            });
+        };
+    }
 };
 
 module.exports = userController;
