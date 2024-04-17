@@ -23,6 +23,15 @@ app.use('/categories', categoryRoutes);
 app.use('/users', userRoutes);
 app.use('/', userRoutes); // This might be redundant if userRoutes does not handle root '/'
 
+app.get('/api/session', (req, res) => {
+  if (req.session.user) {
+      res.json({ loggedIn: true, user_type: req.session.user.user_type });
+  } else {
+      res.json({ loggedIn: false });
+  }
+});
+
+
 app.get('/logout', (req, res) => {
   req.session.destroy((err) => {
       if (err) {

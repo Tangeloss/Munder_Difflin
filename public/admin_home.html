@@ -22,7 +22,7 @@
             <li><a href="/admin_home.html">Admin Home</a></li>
             <li><a href="/product_edit.html">Product Edit Page</a></li>
             <li><a href="/admin_upload.html">Bulk Upload</a></li>
-            <li><a href="/logout">Sign Out</a></li>
+            <li id="logout-item"><a onclick="handleLogout()">Sign Out</a></li>
         </ul>
     </nav>
 
@@ -34,6 +34,8 @@
             <p>On the bulk upload page, you can upload a JSON, CSV, or TXT in the specified format to upload numerous products to the website.</p>
         </section>
     </main>
+
+    <script src="/js/profile.js" defer></script>
 </body>
 
 </html>
