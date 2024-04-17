@@ -1,7 +1,7 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('create-account-form');
 
-    form.addEventListener('submit', function(event) {
+    form.addEventListener('submit', function (event) {
         event.preventDefault();
 
         const password = document.getElementById('password').value;
@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const email = document.getElementById('email').value;
         const usertype = document.getElementById('usertype').value;
 
-        // Send a POST request to the server
         fetch('/users/create-account', {
             method: 'POST',
             headers: {
@@ -22,14 +21,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 usertype: usertype
             })
         })
-        
-        .then(response => response.json()) // Updated to handle JSON response
-        .then(data => {
-            alert('Response: ' + data.message); // Assumes the server sends back a JSON object with a message property
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Error creating account');
-        });
+
+            .then(response => response.json())
+            .then(data => {
+                alert('Response: ' + data.message);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error creating account');
+            });
     });
 });

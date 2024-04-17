@@ -20,8 +20,8 @@ header {
 }
 
 .logo-container img {
-    max-width: 100px;
-    height: auto;
+    max-width: auto;
+    height: 65px;
 }
 
 h1 {
@@ -132,7 +132,3 @@ li {
     margin-bottom: 10px;
 }
 
-img {
-    width: 30px;
-    height: 30px;
-}

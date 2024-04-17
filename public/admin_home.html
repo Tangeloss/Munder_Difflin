@@ -4,58 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bulk Upload</title>
     <link rel="stylesheet" href="styles/admin.css">
+    <title>Admin Homepage</title>
 </head>
 
 <body>
-    <!--Header Section-->
+
     <header>
         <div class="logo-container">
             <img src="images/logo.png" alt="Munder Difflin Logo">
         </div>
-        <h1>Bulk Upload Page</h1>
+        <h1 class="main-head">Munder Difflin Paper Co.</h1>
     </header>
-    <!--Navigation Section-->
+
     <nav class="navigation">
         <ul>
-            <li><a href="admin_upload.html">Bulk Upload</a></li>
-            <li><a href="product_edit.html">Product Edit</a></li>
-            <li><a href="sign_out.php">Sign Out</a></li>
+            <li><a href="/public/admin_home.html">Admin Home</a></li>
+            <li><a href="/public/product_edit.html">Product Edit Page</a></li>
+            <li><a href="/public/admin_upload.html">Bulk Upload</a></li>
+            <li><a href="login.html">Sign Out</a></li>
         </ul>
     </nav>
-    <!--Form Section-->
+
     <main>
-        <form action="upload.php" method="post" enctype="multipart/form-data">
-            <input type="file" name="file" accept=".json,.csv,.txt">
-            <button type="submit" class="upload-button">Upload</button>
-        </form>        
-        <div class="instructions">
-            <!--Instructions for file uploading-->
-            <h2>Instructions:</h2>
-            <p>The uploaded file should be in one of the following formats: JSON, CSV, or TXT.</p>
-            <p>The file should contain product data in the following format:</p>
-            <pre>
-            [
-                {
-                    "product_id": 1,
-                    "name": "Product 1",
-                    "description": "Description of Product 1",
-                    "category_id": 1,
-                    "image_path": "path/to/image1.jpg",
-                    "price": 10.99
-                },
-                {
-                    "product_id": 2,
-                    "name": "Product 2",
-                    "description": "Description of Product 2",
-                    "category_id": 2,
-                    "image_path": "path/to/image2.jpg",
-                    "price": 15.99
-                }
-            ]
-            </pre>
-        </div>
+        <section class="splash-section">
+            <h2>Welcome to the Admin Homepage</h2>
+            <p>You can navigate to different administrative functions at the navigation bar.</p>
+            <p>On the Product eidt page, you can edit various products that are viewabel to customers, as well as add new products individually.</p>
+            <p>On the bulk upload page, you can upload a JSON, CSV, or TXT in the specified format to upload numerous products to the website.</p>
+        </section>
     </main>
 </body>
 
