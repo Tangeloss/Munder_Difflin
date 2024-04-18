@@ -9,14 +9,12 @@
 </head>
 
 <body>
-    <!--Header Section-->
     <header>
         <div class="logo-container">
             <img src="images/logo.png" alt="Munder Difflin Logo">
         </div>
         <h1>Product Edit Page</h1>
     </header>
-    <!--Navigation Section-->
     <nav class="navigation">
         <ul>
             <li><a href="/admin_home.html">Admin Home</a></li>
@@ -25,70 +23,69 @@
             <li id="logout-item"><a onclick="handleLogout()">Sign Out</a></li>
         </ul>
     </nav>
-    <!--Form Section-->
     <main>
         <h2>Edit Product</h2>
         <form id="edit_product_form" onsubmit="updateProduct(event);">
             <input type="text" id="search_product_id" placeholder="Enter Product ID">
             <button type="button" onclick="searchProduct()">Search Product</button>
             <ul>
-        <li>
-            <label for="product_id">Product ID:</label>
-            <input type="text" id="product_id" name="product_id" readonly disabled>
-        </li>
-        <li>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name">
-        </li>
-        <li>
-            <label for="description">Description:</label>
-            <textarea id="description" name="description"></textarea>
-        </li>
-        <li>
-            <label for="category_id">Category ID:</label>
-            <input type="text" id="category_id" name="category_id">
-        </li>
-        <li>
-            <label for="image_url">Image URL:</label>
-            <input type="text" id="image_url" name="image_url">
-        </li>        
-        <li>
-            <label for="price">Price:</label>
-            <input type="text" id="price" name="price">
-        </li>
-        
-    </ul>
-    <button type="submit">Save</button>
-</form>
+                <li>
+                    <label for="product_id">Product ID:</label>
+                    <input type="text" id="product_id" name="product_id" readonly disabled>
+                </li>
+                <li>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name">
+                </li>
+                <li>
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description"></textarea>
+                </li>
+                <li>
+                    <label for="category_id">Category ID:</label>
+                    <input type="text" id="category_id" name="category_id">
+                </li>
+                <li>
+                    <label for="image_url">Image URL:</label>
+                    <input type="text" id="image_url" name="image_url">
+                </li>
+                <li>
+                    <label for="price">Price:</label>
+                    <input type="text" id="price" name="price">
+                </li>
 
-<h2>Add New Product</h2>
-<form action="add_product.php" method="post">
-    <ul>
-        <li>
-            <label for="new_name">Name:</label>
-            <input type="text" id="new_name" name="new_name">
-        </li>
-        <li>
-            <label for="new_description">Description:</label>
-            <textarea id="new_description" name="new_description"></textarea>
-        </li>
-        <li>
-            <label for="new_category_id">Category ID:</label>
-            <input type="text" id="new_category_id" name="new_category_id">
-        </li>
-        <li>
-            <label for="new_image_path">Image Path:</label>
-            <input type="text" id="new_image_path" name="new_image_path">
-        </li>
-        <li>
-            <label for="new_price">Price:</label>
-            <input type="text" id="new_price" name="new_price">
-        </li>
-        <li>
-            <button type="submit">Add</button>
-        </li>
-    </ul>
-</form>
+            </ul>
+            <button type="submit">Save</button>
+        </form>
+
+        <h2>Add New Product</h2>
+        <form action="add_product.php" method="post">
+            <ul>
+                <li>
+                    <label for="new_name">Name:</label>
+                    <input type="text" id="new_name" name="new_name">
+                </li>
+                <li>
+                    <label for="new_description">Description:</label>
+                    <textarea id="new_description" name="new_description"></textarea>
+                </li>
+                <li>
+                    <label for="new_category_id">Category ID:</label>
+                    <input type="text" id="new_category_id" name="new_category_id">
+                </li>
+                <li>
+                    <label for="new_image_path">Image Path:</label>
+                    <input type="text" id="new_image_path" name="new_image_path">
+                </li>
+                <li>
+                    <label for="new_price">Price:</label>
+                    <input type="text" id="new_price" name="new_price">
+                </li>
+                <li>
+                    <button type="submit">Add</button>
+                </li>
+            </ul>
+        </form>
 
         <h2>Search and Filter Products</h2>
         <input type="text" id="search_input" placeholder="Search...">
@@ -100,24 +97,11 @@
             <option value="3">Category 3</option>
         </select>
         <button onclick="filterByCategory()">Filter</button>
-        <!-- Product List to be populated dynamically -->
         <ul id="product_list">
-            <!-- Product items will be added here -->
         </ul>
     </main>
-    <script>
-        // JavaScript functions for filtering and searching products
-        function filterProducts() {
-            // Filter products based on search input
-        }
-
-        function filterByCategory() {
-            // Filter products based on selected category
-        }
-    </script>
-
-<script src="/js/profile.js" defer></script>
-<script src="/js/searchProductAdmin.js" defer></script>
+    <script src="/js/profile.js" defer></script>
+    <script src="/js/searchProductAdmin.js" defer></script>
 </body>
 
 </html>

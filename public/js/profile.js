@@ -1,8 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("create-account-form");
-  const navBar = document.getElementById("nav-bar"); // Get the nav-bar element once
+  const navBar = document.getElementById("nav-bar");
 
-  // Fetch session data and adjust UI accordingly
   fetch("/api/session")
     .then((response) => response.json())
     .then((data) => {
@@ -40,11 +39,11 @@ document.addEventListener("DOMContentLoaded", function () {
       })
         .then((response) => response.json())
         .then((data) => {
-          alert("Response: " + data.message); // Consider updating this part for better user feedback
+          alert("Response: " + data.message);
         })
         .catch((error) => {
           console.error("Error:", error);
-          alert("Error creating account"); // Consider updating this part for better user feedback
+          alert("Error creating account");
         });
     });
   }

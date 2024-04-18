@@ -1,4 +1,3 @@
-// getCategories.js
 document.addEventListener("DOMContentLoaded", function () {
   fetch("/categories")
     .then((response) => response.json())

@@ -18,7 +18,7 @@ exports.addToCart = function (db) {
     const userCartId = req.session.user.cart_id;
     if (typeof productId !== "number" || typeof quantity !== "number") {
       return res.status(400).send("Invalid product ID or quantity");
-    } // Get cart_id from the session
+    }
 
     const sql =
       "INSERT INTO CartProducts (cart_id, product_id, quantity) VALUES (?, ?, ?)";
@@ -43,7 +43,7 @@ exports.removeFromCart = function (db) {
     }
 
     const user_id = req.session.user.id;
-    const { cartProductId } = req.params; // Ensure this matches with what you declared in your route '/remove/:cartProductId'
+    const { cartProductId } = req.params;
 
     const sql =
       "DELETE FROM CartProducts WHERE cart_products_id = ? AND cart_id IN (SELECT cart_id FROM Carts WHERE user_id = ?)";
@@ -63,7 +63,6 @@ exports.removeFromCart = function (db) {
   };
 };
 
-// In cartController.js
 exports.getCartItems = function (db) {
   return function (req, res) {
     if (!req.session.user) {
@@ -71,7 +70,6 @@ exports.getCartItems = function (db) {
     }
     const user_id = req.session.user.id;
 
-    // Query to join CartProducts with Products table to get product details
     const sql = `
       SELECT cp.cart_products_id, cp.quantity, p.product_id, p.name, p.description, p.price, p.image_url
       FROM CartProducts cp
@@ -84,18 +82,15 @@ exports.getCartItems = function (db) {
           .status(500)
           .send(`Error fetching cart items: ${err.message}`);
       }
-      // Make sure rows is not empty and has the product info
       if (rows && rows.length > 0) {
         res.json(rows);
       } else {
-        // No cart items found or no products joined
         res.json([]);
       }
     });
   };
 };
 
-// ... rest of your existing cartController.js code ...
 exports.updateCartItem = function (db) {
   return function (req, res) {
     if (!req.session || !req.session.user) {
@@ -105,15 +100,13 @@ exports.updateCartItem = function (db) {
     }
 
     const user_id = req.session.user.id;
-    const { cartProductId } = req.params; // This is the ID of the cart item
-    const { newQuantity } = req.body; // Get new quantity from the request body
+    const { cartProductId } = req.params;
+    const { newQuantity } = req.body;
 
-    // Input validation (simple example)
     if (!cartProductId || newQuantity === undefined) {
       return res.status(400).send("Missing cart product ID or new quantity.");
     }
 
-    // Ensure quantity is a positive number
     const quantity = parseInt(newQuantity, 10);
     if (isNaN(quantity) || quantity < 1) {
       return res.status(400).send("Quantity must be a positive integer.");

@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     searchInput.addEventListener("keypress", function (e) {
       if (e.key === "Enter") {
-        e.preventDefault(); // Prevent the default form submission
+        e.preventDefault();
         performSearch();
       }
     });
@@ -59,11 +59,11 @@ function updateProduct(event) {
     name: document.getElementById("name").value,
     description: document.getElementById("description").value,
     category_id: document.getElementById("category_id").value,
-    image_url: document.getElementById("image_url").value, // Corrected to 'image_url'
+    image_url: document.getElementById("image_url").value,
     price: document.getElementById("price").value,
   };
 
-  console.log("Sending data to server:", productData); // Debugging output
+  console.log("Sending data to server:", productData);
 
   fetch("/api/products/update", {
     method: "POST",
@@ -74,12 +74,12 @@ function updateProduct(event) {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log("Server response:", data); // More debugging output
+      console.log("Server response:", data);
       alert(data.message);
     })
     .catch((error) => {
       console.error("Error updating product:", error);
       alert("Failed to update product.");
     });
-  return false; // Ensure this is here to prevent form submission
+  return false;
 }

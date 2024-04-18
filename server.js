@@ -13,16 +13,15 @@ app.use(
     secret: "!QAZ2wsx",
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false }, // Set to true if you're using HTTPS
+    cookie: { secure: false },
   })
 );
 
 const productRoutes = require("./routes/productRoutes")(db);
 const userRoutes = require("./routes/userRoutes")(db);
 const categoryRoutes = require("./routes/categoryRoutes")(db);
-const cartRoutes = require("./routes/cartRoutes")(db); // Assuming cartRoutes is properly exporting a function that takes db
+const cartRoutes = require("./routes/cartRoutes")(db);
 
-// Make sure isAuthenticated is defined before use
 function isAuthenticated(req, res, next) {
   if (req.session && req.session.user) {
     return next();
@@ -40,7 +39,11 @@ app.use("/", userRoutes);
 
 app.get("/api/session", (req, res) => {
   if (req.session.user) {
-    res.json({ loggedIn: true, user_type: req.session.user.user_type, user_id: req.session.user.id });
+    res.json({
+      loggedIn: true,
+      user_type: req.session.user.user_type,
+      user_id: req.session.user.id,
+    });
   } else {
     res.json({ loggedIn: false });
   }
@@ -91,10 +94,6 @@ app.post("/api/products/update", (req, res) => {
       res.json({ message: "Product updated successfully" });
     }
   );
-});
-
-app.get("/", (req, res) => {
-  res.send("Hello World!");
 });
 
 app.listen(PORT, () => {
