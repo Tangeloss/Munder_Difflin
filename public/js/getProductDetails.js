@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+/*
 function addToCart(product) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   cart.push(product);
@@ -65,7 +66,6 @@ function addToCart(product) {
   alert("Added to cart!");
 }
 
-/*
 
 document.addEventListener("DOMContentLoaded", function () {
   const queryParams = new URLSearchParams(window.location.search);

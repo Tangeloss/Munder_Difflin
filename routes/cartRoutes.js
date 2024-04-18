@@ -1,10 +1,13 @@
 const express = require('express');
-const router = express.Router();
 const cartController = require('../controllers/cartController');
 
-// Define routes and link to controller methods
-router.post('/cart/add', cartController.addToCart);
-router.delete('/cart/remove/:cartId', cartController.removeFromCart);
-router.get('/cart/items', cartController.getCartItems);
+module.exports = function(db) {
+  const router = express.Router();
 
-module.exports = router;
+  // Assuming cartController.addToCart is properly set to handle db and request
+  router.post('/add', cartController.addToCart(db));
+  router.delete('/remove/:cartProductId', cartController.removeFromCart(db));
+  router.get('/items', cartController.getCartItems(db));
+
+  return router;
+};
