@@ -62,9 +62,9 @@ document.addEventListener("DOMContentLoaded", function () {
                       <p><strong>Price:</strong> $${product.price.toFixed(
                         2
                       )}</p>
-                      <button onclick="addToCart(${
+                      <a href="details.html?id=${
                         product.product_id
-                      })" class="cta-button">Add to Cart</button>
+                      }" class="cta-button">Details</a>
                   </div>
               `;
           searchResultsContainer.style.display = "block";

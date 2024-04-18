@@ -1,33 +1,34 @@
 const userController = {
-    createAccount: function (db) {
-      return function (req, res) {
-        const { name, email, password, usertype } = req.body;
-        const createdAt = new Date().toISOString(); // Get current date and time
+  createAccount: function (db) {
+    return function (req, res) {
+      const { name, email, password, usertype } = req.body;
+      const createdAt = new Date().toISOString(); // Get current date and time
   
-        const userSql = `INSERT INTO Users (created_at, name, email, password, user_type) VALUES (?, ?, ?, ?, ?)`;
+      const userSql = `INSERT INTO Users (created_at, name, email, password, user_type) VALUES (?, ?, ?, ?, ?)`;
   
-        // Insert a new user into the Users table
-        db.run(userSql, [createdAt, name, email, password, usertype], function (userErr) {
-          if (userErr) {
-            console.error('Error creating account:', userErr);
-            return res.status(500).send('Error creating account');
+      // Insert a new user into the Users table
+      db.run(userSql, [createdAt, name, email, password, usertype], function (userErr) {
+        if (userErr) {
+          console.error('Error creating account:', userErr);
+          return res.status(500).send('Error creating account');
+        }
+  
+        const userId = this.lastID;
+  
+        // Insert a new cart into the Carts table, linked to the newly created user
+        const cartSql = `INSERT INTO Carts (status, created_at, user_id) VALUES (?, ?, ?)`;
+        db.run(cartSql, ['active', createdAt, userId], (cartErr) => { // Arrow function preserves `this`
+          if (cartErr) {
+            console.error('Error creating cart for user:', cartErr);
+            return res.status(500).send('Error creating cart for user');
           }
-  
-          const userId = this.lastID;
-  
-          // Insert a new cart into the Carts table, linked to the newly created user
-          const cartSql = `INSERT INTO Carts (status, created_at, user_id) VALUES (?, ?, ?)`;
-          db.run(cartSql, ['active', createdAt, userId], function (cartErr) {
-            if (cartErr) {
-              console.error('Error creating cart for user:', cartErr);
-              return res.status(500).send('Error creating cart for user');
-            }
-            console.log('Account and cart created successfully with user_id:', userId);
-            res.status(201).json({ message: "Account and cart created successfully" });
-          });
+          console.log('Account and cart created successfully with user_id:', userId);
+          res.status(201).json({ message: "Account and cart created successfully", user_id: userId });
         });
-      };
-    },
+      });
+    };
+  },
+  
     login: function (db) {
       return function (req, res) {
         const { email, password } = req.body;

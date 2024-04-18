@@ -8,6 +8,8 @@ module.exports = function(db) {
   router.post('/add', cartController.addToCart(db));
   router.delete('/remove/:cartProductId', cartController.removeFromCart(db));
   router.get('/items', cartController.getCartItems(db));
+  router.put('/update/:cartProductId', cartController.updateCartItem(db));
+
 
   return router;
 };

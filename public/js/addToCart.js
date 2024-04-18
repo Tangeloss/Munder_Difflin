@@ -1,35 +1,38 @@
 /// Function to display cart items and calculate total on the cart page
 // Function to add a product to the cart
 window.addToCart = function (productId, quantity = 1) {
+  console.log({ productId, quantity }); // Add this before the fetch in addToCart.js to log what's being sent
   fetch("/cart/add", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ productId, quantity }),
-    credentials: "include", // Include cookies for session
+    credentials: "include",
+    body: JSON.stringify({ productId: productId.product_id, quantity }), // Make sure to send only the numeric ID
   })
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json();
-  })
-  .then(data => {
-    alert(data.message); // Notify the user of the result
-    // Additional logic to handle the response
-  })
-  .catch(error => {
-    console.error('Error adding product to cart:', error);
-  });
+    // ...
+
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      alert(data.message); // Notify the user of the result
+      // Additional logic to handle the response
+    })
+    .catch((error) => {
+      console.error("Error adding product to cart:", error);
+    });
 };
 
-
+// Function to display cart items and calculate total on the cart page
 // Function to display cart items and calculate total on the cart page
 function displayCartItems() {
   fetch("/cart/items", {
-    method: "GET",  
-    credentials: "include", // Include session cookie in the request if needed
+    method: "GET",
+    credentials: "include",
   })
     .then((response) => response.json())
     .then((cartItems) => {
@@ -38,39 +41,41 @@ function displayCartItems() {
 
       cartContainer.innerHTML = cartItems
         .map((item) => {
-          const itemTotal = item.price * item.quantity;
+          const price = item.price || 0;
+          const itemTotal = price * (item.quantity || 1);
           cartTotal += itemTotal;
           return `
-        <div class="cart-item" id="cart-item-${item.cart_products_id}">
-          <h3>${item.name}</h3>
-          <img src="${item.image_url}" alt="${item.name}">
-          <p>${item.description}</p>
-          <p>Price: $${item.price.toFixed(2)}</p>
-          <p>Quantity: ${item.quantity}</p>
-          <div class="quantity">
-            <input type="number" value="${item.quantity}" min="1">
-            <button onclick="updateQuantity(${
-              item.cart_products_id
-            }, this.previousElementSibling.value)" class="cta-button">Save</button>
-          </div>
-          <button onclick="removeFromCart(${
+            <div class="cart-item" id="cart-item-${item.cart_products_id}">
+              <h3>${item.name || "No name"}</h3>
+              <img src="${item.image_url || "/images/default.png"}" alt="${
+            item.name || "No name"
+          }">
+              <p>${item.description || "No description"}</p>
+              <p>Price: $${price.toFixed(2)}</p>
+              <p>Quantity: ${item.quantity || 1}</p>
+              <div class="quantity">
+                <input type="number" id="quantity-${
+                  item.cart_products_id
+                }" value="${item.quantity || 1}" min="1">
+                <button onclick="updateQuantity(${
+                  item.cart_products_id
+                }, document.getElementById('quantity-${
             item.cart_products_id
-          })" class="cta-button">Remove</button>
-        </div>
-      `;
+          }').value)" class="cta-button">Update</button>
+              </div>
+              <button onclick="removeFromCart(${
+                item.cart_products_id
+              })" class="cta-button">Remove</button>
+            </div>
+          `;
         })
         .join("");
-        
-  console.log('Cart items:', cartItems);
-        console.log('Updating cart total');
 
-      // Update the total display
       const taxRate = 6.75 / 100;
       const taxAmount = cartTotal * taxRate;
       const deliveryFee = 15.0;
       const total = cartTotal + taxAmount + deliveryFee;
 
-      // Update the total display
       const totalContainer = document.getElementById("total-section");
       totalContainer.innerHTML = `
         <p><strong>Cart Total:</strong> $${cartTotal.toFixed(2)}</p>
@@ -78,9 +83,9 @@ function displayCartItems() {
         <p>Delivery Fee: $${deliveryFee.toFixed(2)}</p>
         <p><strong>Total: $${total.toFixed(2)}</strong></p>
         <button class="cta-button">Checkout</button>
-    `;
-    console.log('Cart updated');
+      `;
 
+      console.log("Cart updated");
     })
     .catch((error) => console.error("Error fetching cart items:", error));
 }
@@ -92,23 +97,28 @@ if (window.location.pathname.endsWith("cart.html")) {
 
 // Function to update the quantity of a product in the cart
 function updateQuantity(cartProductId, newQuantity) {
-  // Send the update to the server
   fetch(`/cart/update/${cartProductId}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
-      credentials: "include",
     },
-    body: JSON.stringify({ newQuantity }),
+    credentials: "include",
+    body: JSON.stringify({ newQuantity: parseInt(newQuantity, 10) }),
   })
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.message) {
-        alert(data.message);
-        displayCartItems(); // Refresh the cart display
-      }
-    })
-    .catch((error) => console.error("Error updating cart quantity:", error));
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(`HTTP status ${response.status}`);
+    }
+    return response.json();
+  })
+  .then((data) => {
+    alert(data.message);
+    displayCartItems(); // Refresh the cart display
+  })
+  .catch((error) => {
+    console.error("Error updating cart quantity:", error);
+    alert("Error updating cart quantity: " + error);
+  });
 }
 
 // Function to remove a product from the cart
