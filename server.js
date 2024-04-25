@@ -1,7 +1,7 @@
 const express = require("express");
 const session = require("express-session");
 const sqlite3 = require("sqlite3");
-const db = new sqlite3.Database("./database/database.db");
+const db = new sqlite3.Database("database/database.db");
 const app = express();
 const PORT = process.env.PORT || 3000;
 

@@ -1,11 +1,3 @@
-const { use } = require("passport");
-
-const sqlite3 = require("sqlite3").verbose();
-const db = new sqlite3.Database(
-  "C:\\Users\\kenne\\Downloads\\MunderDifflin\\database\\database.db",
-  sqlite3.OPEN_READWRITE
-);
-
 exports.addToCart = function (db) {
   return function (req, res) {
     if (!req.session || !req.session.user) {
@@ -87,6 +79,22 @@ exports.getCartItems = function (db) {
       } else {
         res.json([]);
       }
+    });
+  };
+};
+
+exports.handleCheckout = function(db) {
+  return function(req, res) {
+    if (!req.session.user) {
+      return res.status(401).send("You must be logged in to checkout.");
+    }
+    const user_id = req.session.user.id;
+    db.run("DELETE FROM CartProducts WHERE cart_id IN (SELECT cart_id FROM Carts WHERE user_id = ?)", [user_id], function(err) {
+      if (err) {
+        console.error('Error during checkout:', err.message);
+        return res.status(500).send("An error occurred during checkout.");
+      }
+      res.json({ message: "Checkout successful, cart is now empty." });
     });
   };
 };

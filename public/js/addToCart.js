@@ -75,7 +75,7 @@ function displayCartItems() {
         <p>Tax (6.75%): $${taxAmount.toFixed(2)}</p>
         <p>Delivery Fee: $${deliveryFee.toFixed(2)}</p>
         <p><strong>Total: $${total.toFixed(2)}</strong></p>
-        <button class="cta-button">Checkout</button>
+        <button class="cta-button" onclick="handleCheckout()">Checkout</button>
       `;
 
       console.log("Cart updated");
@@ -129,4 +129,19 @@ function removeFromCart(cartProductId) {
     .catch((error) =>
       console.error("Error removing product from cart:", error)
     );
+}
+
+function handleCheckout() {
+  fetch("/cart/checkout", {
+    method: "POST",
+    credentials: "include",
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      alert(data.message);
+      displayCartItems();
+    })
+    .catch((error) => {
+      console.error("Error during checkout:", error);
+    });
 }
