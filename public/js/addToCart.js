@@ -38,6 +38,7 @@ function displayCartItems() {
           const itemTotal = price * (item.quantity || 1);
           cartTotal += itemTotal;
           return `
+          <div class="cart-dis">
             <div class="cart-item" id="cart-item-${item.cart_products_id}">
               <h3>${item.name || "No name"}</h3>
               <img src="${item.image_url || "/images/default.png"}" alt="${
@@ -60,6 +61,7 @@ function displayCartItems() {
                 item.cart_products_id
               })" class="cta-button">Remove</button>
             </div>
+            </div>
           `;
         })
         .join("");
@@ -71,11 +73,13 @@ function displayCartItems() {
 
       const totalContainer = document.getElementById("total-section");
       totalContainer.innerHTML = `
+      <aside>
         <p><strong>Cart Total:</strong> $${cartTotal.toFixed(2)}</p>
         <p>Tax (6.75%): $${taxAmount.toFixed(2)}</p>
         <p>Delivery Fee: $${deliveryFee.toFixed(2)}</p>
         <p><strong>Total: $${total.toFixed(2)}</strong></p>
         <button class="cta-button" onclick="handleCheckout()">Checkout</button>
+        </aside>
       `;
 
       console.log("Cart updated");

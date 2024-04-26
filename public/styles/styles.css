@@ -56,6 +56,12 @@ h1 {
     line-height: 100px;
 }
 
+#results-section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
 .product {
     display: flex;
     flex-direction: column;
