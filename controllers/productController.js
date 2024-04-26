@@ -16,6 +16,8 @@ exports.getProductDetails = (db) => {
   };
 };
 
+
+
 exports.getProducts = (db) => {
   return (req, res) => {
     const sql = "SELECT * FROM products";
@@ -63,3 +65,4 @@ exports.searchProducts = (db) => {
     );
   };
 };
+

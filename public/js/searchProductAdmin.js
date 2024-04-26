@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .addEventListener("submit", function (event) {
         event.preventDefault();
         updateProduct();
+        createProduct();
       });
   } else {
     console.error("Search input or button not found");
@@ -82,4 +83,62 @@ function updateProduct(event) {
       alert("Failed to update product.");
     });
   return false;
+}
+function createProduct(event) {
+  event.preventDefault();
+  const productData = {
+      name: document.getElementById('add_name').value,
+      description: document.getElementById('add_description').value,
+      category_id: document.getElementById('add_category_id').value,
+      image_url: document.getElementById('add_image_url').value,
+      price: document.getElementById('add_price').value,
+  };
+
+  console.log("Sending data to server for product creation:", productData);
+
+  fetch("/api/products/create", {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json",
+      },
+      body: JSON.stringify(productData),
+  })
+  .then(response => response.json())
+  .then(data => {
+      console.log("Server response:", data);
+      alert(data.message);
+  })
+  .catch(error => {
+      console.error("Error creating product:", error);
+      alert("Failed to create product.");
+  });
+  return false;
+}
+
+
+function uploadProducts(event) {
+  event.preventDefault();
+  const fileInput = document.getElementById('file_input');
+  const file = fileInput.files[0];
+
+  if (!file) {
+      alert('Please select a file.');
+      return;
+  }
+
+  const formData = new FormData();
+  formData.append('file', file);
+
+  fetch('/api/products/upload', {
+      method: 'POST',
+      body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+      alert(data.message);
+  })
+  .catch(error => {
+      console.error('Error uploading products:', error);
+      alert('Failed to upload products.');
+  });
 }

@@ -26,9 +26,12 @@
     <main>
         <h2>Edit Product</h2>
         <form id="edit_product_form" onsubmit="updateProduct(event);">
-            <input type="text" id="search_product_id" placeholder="Enter Product ID">
-            <button type="button" onclick="searchProduct()">Search Product</button>
             <ul>
+                <li>
+                    <input type="text" id="search_product_id" placeholder="Enter Product ID">
+                    <button type="button" onclick="searchProduct()">Search Product</button>
+                </li>
+
                 <li>
                     <label for="product_id">Product ID:</label>
                     <input type="text" id="product_id" name="product_id" readonly disabled>
@@ -42,10 +45,6 @@
                     <textarea id="description" name="description"></textarea>
                 </li>
                 <li>
-                    <label for="category_id">Category ID:</label>
-                    <input type="text" id="category_id" name="category_id">
-                </li>
-                <li>
                     <label for="image_url">Image URL:</label>
                     <input type="text" id="image_url" name="image_url">
                 </li>
@@ -53,52 +52,50 @@
                     <label for="price">Price:</label>
                     <input type="text" id="price" name="price">
                 </li>
-
+                <li>
+                    <label for="category_id">Category ID:</label>
+                    <input type="text" id="category_id" name="category_id">
+                </li>
+                <li>
+                    <label for="is_featured">Is Featured? 1:Yes, 0:No</label>
+                    <input type="text" id="is_featured" name="is_featured">
+                </li>
+                <li>
+                    <button type="submit">Save</button>
+                </li>
             </ul>
-            <button type="submit">Save</button>
         </form>
 
         <h2>Add New Product</h2>
-        <form action="add_product.php" method="post">
+        <form id="add_product_form" onsubmit="createProduct(event);">
             <ul>
                 <li>
-                    <label for="new_name">Name:</label>
-                    <input type="text" id="new_name" name="new_name">
+                    <label for="add_name">Name:</label>
+                    <input type="text" id="add_name" name="name">
                 </li>
                 <li>
-                    <label for="new_description">Description:</label>
-                    <textarea id="new_description" name="new_description"></textarea>
+                    <label for="add_description">Description:</label>
+                    <textarea id="add_description" name="description"></textarea>
                 </li>
                 <li>
-                    <label for="new_category_id">Category ID:</label>
-                    <input type="text" id="new_category_id" name="new_category_id">
+                    <label for="add_image_url">Image URL:</label>
+                    <input type="text" id="add_image_url" name="image_url">
                 </li>
                 <li>
-                    <label for="new_image_path">Image Path:</label>
-                    <input type="text" id="new_image_path" name="new_image_path">
+                    <label for="add_price">Price:</label>
+                    <input type="text" id="add_price" name="price">
                 </li>
                 <li>
-                    <label for="new_price">Price:</label>
-                    <input type="text" id="new_price" name="new_price">
+                    <label for="add_category_id">Category ID:</label>
+                    <input type="text" id="add_category_id" name="category_id">
                 </li>
                 <li>
                     <button type="submit">Add</button>
                 </li>
             </ul>
         </form>
+        
 
-        <h2>Search and Filter Products</h2>
-        <input type="text" id="search_input" placeholder="Search...">
-        <button onclick="filterProducts()">Search</button>
-        <select id="category_filter">
-            <option value="">All Categories</option>
-            <option value="1">Category 1</option>
-            <option value="2">Category 2</option>
-            <option value="3">Category 3</option>
-        </select>
-        <button onclick="filterByCategory()">Filter</button>
-        <ul id="product_list">
-        </ul>
     </main>
     <script src="/js/profile.js" defer></script>
     <script src="/js/searchProductAdmin.js" defer></script>
