@@ -17,12 +17,13 @@ document.addEventListener("DOMContentLoaded", function () {
         productsContainer.innerHTML = "";
         products.forEach((product) => {
           productsContainer.innerHTML += `
-              <div class="product">
-                  <img src="${product.image_url}" alt="${product.name}">
-                  <p>${product.name}</p>
-                  <p><strong>Price: </strong>$${product.price}</p>
-                  <a href="details.html?id=${product.product_id}" class="cta-button">Details</a>
-              </div>
+          <div class="product">
+          <img src="${product.image_url}" alt="${product.name}" class="product-image">
+          <p class="product-name">${product.name}</p>
+          <p class="product-price"><strong>Price: </strong>$${product.price}</p>
+          <a href="details.html?id=${product.product_id}" class="cta-button">Details</a>
+        </div>
+        
           `;
           searchResultsContainer.style.display = "none";
         });

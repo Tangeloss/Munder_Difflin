@@ -20,11 +20,13 @@ document.addEventListener("DOMContentLoaded", function () {
       const productDetailsSection = document.querySelector(".product-details");
       if (productDetailsSection) {
         productDetailsSection.innerHTML = `
-                  <h2>${product.name}</h2>
+        <div class="details">
+                  <h2 class="product-name">${product.name}</h2>
                   <img src="${product.image_url}" alt="${product.name}">
                   <p>${product.description}</p>
                   <p><strong>Price:</strong> $${product.price}</p>
                   <button id="addToCartButton" class="cta-button">Add to Cart</button>
+                  </div>
               `;
 
         document

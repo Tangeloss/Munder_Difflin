@@ -56,6 +56,78 @@ h1 {
     line-height: 100px;
 }
 
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start; /* Aligns content to the top */
+    margin: 10px;
+    border: solid black 2px;
+    border-radius: 6px;
+    background-color: white;
+    width: 20%;
+    min-height: 250px; /* Changes from height to min-height */
+    padding: 10px;
+    overflow: hidden; /* Ensures nothing spills out */
+  }
+  
+  .product img {
+    max-width: 100%; /* Ensures image does not overflow */
+    height: auto; /* Keep aspect ratio */
+  }
+  
+  .product p {
+    text-align: center; /* Centers text */
+    margin: 4px 0; /* Adds a little space between paragraphs */
+    /* Removed overflow, text-overflow, white-space for wrapping */
+    word-wrap: break-word; /* Allows the breaking of long words */
+  }
+  
+  .product .product-name {
+    min-height: 36px; /* Allocate space for at least two lines of text */
+  }
+  
+  .product a.cta-button {
+    margin-top: auto; /* Pushes the button to the bottom */
+    align-self: center; /* Ensure the button is centered */
+  }
+
+  .details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start; /* Aligns content to the top */
+    margin: 10px;
+    border: solid black 2px;
+    border-radius: 6px;
+    background-color: white;
+    width: 20%;
+    min-height: 250px; /* Changes from height to min-height */
+    padding: 10px;
+    overflow: hidden; /* Ensures nothing spills out */
+  }
+
+  .details img {
+    max-width: 130%; /* Ensures image does not overflow */
+    height: auto; /* Keep aspect ratio */
+  }
+
+  .details p {
+    text-align: center; /* Centers text */
+    margin: 4px 0; /* Adds a little space between paragraphs */
+    /* Removed overflow, text-overflow, white-space for wrapping */
+    word-wrap: break-word; /* Allows the breaking of long words */
+  }
+
+  .details .product-name {
+    min-height: 36px; /* Allocate space for at least two lines of text */
+  }
+
+  .details .cta-button {
+    margin-top: auto; /* Pushes the button to the bottom */
+    align-self: center; /* Ensure the button is centered */
+  }
+
 .flex-container img {
     width: 135px;
     height: auto;
