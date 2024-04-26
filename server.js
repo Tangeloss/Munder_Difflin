@@ -82,7 +82,7 @@ app.post('/api/products/update', (req, res) => {
 
 app.post('/api/products/create', (req, res) => {
   const { product_id, name, description, category_id, image_url, price, is_featured = 0 } = req.body;
-  const sql = "INSERT INTO Products (name, description, category_id, image_url, price, is_featured) VALUES (?, ?, ?, ?, ?, ?) WHERE product_id = ?";
+  const sql = "INSERT INTO Products (name, description, category_id, image_url, price, is_featured) VALUES (?, ?, ?, ?, ?, ?)";
   db.run(sql, [name, description, category_id, image_url, price, is_featured, product_id], function (err) {
     if (err) {
       console.error("Error creating product:", err.message);
