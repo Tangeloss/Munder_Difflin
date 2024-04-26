@@ -8,6 +8,7 @@ const db = new sqlite3.Database('./database/database.db');
 const productRoutes = require('./routes/productRoutes')(db);
 const userRoutes = require('./routes/userRoutes')(db);
 const categoryRoutes = require('./routes/categoryRoutes')(db);
+const cartRoutes = require('./routes/cartRoutes')(db);
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -24,6 +25,7 @@ app.use(express.static('public'));
 app.use('/products', productRoutes);
 app.use('/categories', categoryRoutes);
 app.use('/users', userRoutes);
+app.use('/cart', cartRoutes);
 app.use('/', userRoutes);
 
 
