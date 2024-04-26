@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Post-it Notes, 1 3/8 in x 1 7/8 in, 24 Pads",
+        "description": "Post-it Notes, 1 3/8 in x 1 7/8 in, 24 Pads, America's #1 Favorite Sticky Notes, Beachside Café Collection, Pastel Colors, Clean Removal, Recyclable",
+        "category_id": 2,
+        "image_url": "https://m.media-amazon.com/images/I/61uXf9lkGML.__AC_SX300_SY300_QL70_FMwebp_.jpg",
+        "price": 12.99
+    },
+    {
+        "name": "120 Pack Two Tone Color File Folders",
+        "description": "120 Pack Two Tone Color File Folders 8.5 x 11 Inch, 1/3 Cut Tab File Folder Letter Size, Assorted Colors, Teal Violet Gray Navy Burgundy Manila File Folder, School Business Office Folders for Document",
+        "category_id": 1,
+        "image_url": "https://m.media-amazon.com/images/I/61UiqBWaVOL._AC_SX679_.jpg",
+        "price": 29.99
+    },
+    {
+        "name": "Sublimation Paper ",
+        "description": "A-SUB Sublimation Paper Heat Transfer 110 Sheets 8.5 x 11 Inches Letter Size Compatible with Inkjet Printer 120gsm",
+        "category_id": 3,
+        "image_url": "https://m.media-amazon.com/images/I/61MCBLXgTNL._AC_SX679_.jpg",
+        "price": 17.99
+    }
+]
